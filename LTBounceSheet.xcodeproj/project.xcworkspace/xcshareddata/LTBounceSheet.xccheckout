@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EB869CD1-F5C4-4E91-A34A-A537EB52C224</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B4E67E5EB072D3CE73CE7E61DDA482597C24409B</key>
+		<string>https://github.com/tuchangwei/LTBounceSheet.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LTBounceSheet.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B4E67E5EB072D3CE73CE7E61DDA482597C24409B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tuchangwei/LTBounceSheet.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B4E67E5EB072D3CE73CE7E61DDA482597C24409B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B4E67E5EB072D3CE73CE7E61DDA482597C24409B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LTBounceSheet</string>
+		</dict>
+	</array>
+</dict>
+</plist>
