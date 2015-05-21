@@ -26,16 +26,16 @@ class ViewController: UIViewController {
         self.sheet = LTBounceSheet(height: 250, bgColor: color)
         
         let option1 = produceButtonWithTitle("take photo")
-        option1.frame=CGRectMake(15, 30, 290, 46);
+        option1.frame=CGRectMake(15, 50, 290, 46);
         self.sheet.addView(option1)
         
         let option2 = produceButtonWithTitle("choose existing photo")
-        option2.frame=CGRectMake(15, 90, 290, 46);
+        option2.frame=CGRectMake(15, 115, 290, 46);
         self.sheet.addView(option2)
         
         
         let cancel = produceButtonWithTitle("cancel")
-        cancel.frame=CGRectMake(15, 170, 290, 46);
+        cancel.frame=CGRectMake(15, 180, 290, 46);
         self.sheet.addView(cancel)
         
         
@@ -54,10 +54,7 @@ class ViewController: UIViewController {
         button.setTitleColor(color, forState: .Normal)
         return button;
     }
-    @IBAction func toggle(sender: AnyObject) {
-        
-        self.sheet.toggle() 
-    }
+
 
 }
 

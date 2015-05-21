@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>EB869CD1-F5C4-4E91-A34A-A537EB52C224</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>LTBounceSheet</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B4E67E5EB072D3CE73CE7E61DDA482597C24409B</key>
 		<string>https://github.com/tuchangwei/LTBounceSheet.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>LTBounceSheet.xcodeproj/project.xcworkspace</string>
+	<string>LTBounceSheet.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B4E67E5EB072D3CE73CE7E61DDA482597C24409B</key>

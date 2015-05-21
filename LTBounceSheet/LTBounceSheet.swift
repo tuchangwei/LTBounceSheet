@@ -12,7 +12,7 @@ let sideViewDamping = CGFloat(0.87)
 let sideViewVelocity = CGFloat(10)
 let centerViewDamping = CGFloat(1.0)
 let centerViewVelocity = CGFloat(8)
-
+let footer = CGFloat(49)
 
 class LTBounceSheet: UIView {
 
@@ -25,6 +25,7 @@ class LTBounceSheet: UIView {
     private var shown: Bool!
     private var counter: Int!
     private var height: CGFloat!
+    private let screenHeight: CGFloat!
     
     init(height: CGFloat, bgColor: UIColor) {
         
@@ -32,26 +33,35 @@ class LTBounceSheet: UIView {
         self.bgColor = bgColor
         self.counter = 0
         self.shown = false
-        
         let screenRect = UIScreen.mainScreen().bounds
         let screenWidth = CGRectGetWidth(screenRect)
-        let screenHeight = CGRectGetHeight(screenRect)
+        screenHeight = CGRectGetHeight(screenRect)
         
         super.init(frame: CGRect(x: 0, y:screenHeight-height , width: screenWidth, height: height))
         
+        
         self.contentView = UIView(frame: CGRectMake(0, 0, screenWidth, screenHeight))
-        self.contentView.transform = CGAffineTransformMakeTranslation(0, height)
+        self.contentView.transform = CGAffineTransformMakeTranslation(0, height-footer)
+        self.contentView.backgroundColor = bgColor
         self.addSubview(self.contentView)
         
-        self.sideHelperView = UIView(frame: CGRectMake(0, height, 0, 0))
+        var swipeUp = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
+        self.addGestureRecognizer(swipeUp)
+        
+        var swipeDown = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        self.addGestureRecognizer(swipeDown)
+        
+        self.sideHelperView = UIView(frame: CGRectMake(0, height-footer, 0, 0))
         self.sideHelperView.backgroundColor = UIColor.blackColor()
         self.addSubview(self.sideHelperView)
         
-        self.centerHelperView = UIView(frame: CGRectMake(screenWidth/2, height, 0, 0))
+        self.centerHelperView = UIView(frame: CGRectMake(screenWidth/2, height-footer, 0, 0))
         self.addSubview(self.centerHelperView)
         
         self.backgroundColor = UIColor.clearColor()
-        
+        UIApplication.sharedApplication().keyWindow?.addSubview(self)
         
     }
 
@@ -59,6 +69,19 @@ class LTBounceSheet: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func respondToSwipeGesture(gesture: UISwipeGestureRecognizer) {
+        
+        if gesture.direction == UISwipeGestureRecognizerDirection.Up {
+            
+        
+            self.show()
+            
+        } else {
+            
+         
+            self.hide()
+        }
+    }
     func addView(view: UIView) {
         
         self.contentView.addSubview(view)
@@ -84,8 +107,6 @@ class LTBounceSheet: UIView {
             
             return
         }
-        
-        UIApplication.sharedApplication().keyWindow?.addSubview(self)
         self.shown = true
         
         self.start()
@@ -105,9 +126,9 @@ class LTBounceSheet: UIView {
         self.shown = false
         self.start()
         let height = CGRectGetHeight(self.bounds)
-        self.animateSideHelperViewToPoint(CGPointMake(self.sideHelperView.center.x, height))
-        self.animateCenterHelperViewToPoint(CGPointMake(self.centerHelperView.center.x, height))
-        self.animateContentViewToHeight(self.height)
+        self.animateSideHelperViewToPoint(CGPointMake(self.sideHelperView.center.x, height-footer))
+        self.animateCenterHelperViewToPoint(CGPointMake(self.centerHelperView.center.x, height-footer))
+        self.animateContentViewToHeight(self.height-footer)
     }
     
     func animateSideHelperViewToPoint(point: CGPoint) {
@@ -132,6 +153,7 @@ class LTBounceSheet: UIView {
             }) { (finished: Bool) -> Void in
                 
                 self.complete()
+
         }
     }
     func animateContentViewToHeight(height: CGFloat) {
@@ -168,10 +190,7 @@ class LTBounceSheet: UIView {
             
             self.displayLink.invalidate()
             self.displayLink = nil
-            if self.shown == false {
-                
-                self.removeFromSuperview()
-            }
+          
         }
     }
     
@@ -179,6 +198,7 @@ class LTBounceSheet: UIView {
         
         if self.counter == 0 {
             
+            super.drawRect(rect)
             return
         }
         
